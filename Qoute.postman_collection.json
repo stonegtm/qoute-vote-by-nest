@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "de638391-0805-43b3-8f31-09d4d13ad499",
+		"name": "Qoute",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11722304"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin2\",\r\n    \"email\": \"admin2@admin.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin2\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Qoute",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiOTMwZDQ2NDItZmU5Ny00Njk2LTk0MjEtYzk0NDQxN2FhMDNmIiwiaWF0IjoxNzI0ODcwNzEyLCJleHAiOjE3MjQ4NzQzMTJ9.Oy0r_sAxmMkHuoBoIB3J3M1NfuzUqL34qFHCCgF8xM8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"qoute\": \"คำว่ารักมันกลายเป็นฝุ่นไปแล้ว แล้วเธอก็เป่ามันทิ้งไปแล้ว ละ ละ ละ แล้ววว\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/qoute",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qoute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vote qoute",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInN1YiI6IjI3OGY1NjA3LTQwMzEtNDIzMC04MjI1LTlkMzM2YTUzYjk3MiIsInJvbGVfYWRtaW4iOmZhbHNlLCJpYXQiOjE3MjQ4NzQ5MTAsImV4cCI6MTcyNDg3ODUxMH0.Dz7xaGuJT6yuIMJCt4hmta_V_JSRirvF0bDUOfM0clk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"0e16cf33-085e-46e3-b274-d4d8e962e219\",\r\n    \"vote\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/qoute/vote",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qoute",
+						"vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get list qoute",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInN1YiI6IjI3OGY1NjA3LTQwMzEtNDIzMC04MjI1LTlkMzM2YTUzYjk3MiIsInJvbGVfYWRtaW4iOmZhbHNlLCJpYXQiOjE3MjQ4NzQ5MTAsImV4cCI6MTcyNDg3ODUxMH0.Dz7xaGuJT6yuIMJCt4hmta_V_JSRirvF0bDUOfM0clk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/qoute?sortBy=vote&sortOrder=DESC&filter={ \"voteCount\": { \"cond\": \"greaterThan\", \"value\": 0 } }&search=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qoute"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "vote"
+						},
+						{
+							"key": "sortOrder",
+							"value": "DESC"
+						},
+						{
+							"key": "filter",
+							"value": "{ \"voteCount\": { \"cond\": \"greaterThan\", \"value\": 0 } }"
+						},
+						{
+							"key": "search",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Qoute",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiOTMwZDQ2NDItZmU5Ny00Njk2LTk0MjEtYzk0NDQxN2FhMDNmIiwicm9sZV9hZG1pbiI6ZmFsc2UsImlhdCI6MTcyNDg3MTQ0OCwiZXhwIjoxNzI0ODc1MDQ4fQ.1oW6L9t8MonnhSMcdI-guMlHH81OLQF0B4SbYMeuDvs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"qoute\": \"คำว่ารักมันกลายเป็นฝุ่นไปแล้ว แล้วเธอก็เป่ามันทิ้งไปแล้ว12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/qoute/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qoute",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "d59a02e7-055f-4322-be84-eb91da6aa537"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Qoute",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiOTMwZDQ2NDItZmU5Ny00Njk2LTk0MjEtYzk0NDQxN2FhMDNmIiwicm9sZV9hZG1pbiI6ZmFsc2UsImlhdCI6MTcyNDg3MTQ0OCwiZXhwIjoxNzI0ODc1MDQ4fQ.1oW6L9t8MonnhSMcdI-guMlHH81OLQF0B4SbYMeuDvs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/qoute/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"qoute",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "d59a02e7-055f-4322-be84-eb91da6aa537"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
